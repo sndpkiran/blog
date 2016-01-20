@@ -13,13 +13,16 @@
 				<h2><%= link_to post.title, post %></h2>
 			</div>
 			<div class="post-description">
-				<p><%= truncate post.description, :length => 100 %></p>
+				<p><%= truncate post.description, :length => 400 %></p>
 			</div>
-			<div class="post-time pull-left">
-				<h2><%= link_to "Read more  \&raquo; ", post %></h2>
-				<p><%= post.posted_on %></p>
+			<div class="pull-left">
+				<!-- <br> -->
+				<%= link_to 'Read more', post , :class=> "read-more" %>
 			</div>
-		</div>
+			<div class="post-time pull-right">
+				<p><%= "Posted on: " + post.posted_on.strftime("%d-%m-%y") %></p>
+			</div>
+		</div><br>
 	<% end %>
 </div>
 <!-- <table>

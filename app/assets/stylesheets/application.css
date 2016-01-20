@@ -194,7 +194,7 @@ input[type='date'] {
 }
 
 .post-title {
-	/*font-size: */
+	font-size: 18px;
 
 }
 
@@ -203,5 +203,9 @@ input[type='date'] {
 }
 
 .post-time {
-	
+
+}
+
+.read-more {
+	font-size: 14px;
 }
