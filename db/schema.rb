@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20160120171107) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",       limit: 255
-    t.string   "description", limit: 255
-    t.datetime "posted_on"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "description", limit: 10000
+    t.datetime "posted_on",                 default: '2016-01-20 18:18:46', null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
   end
 
   create_table "users", force: :cascade do |t|
