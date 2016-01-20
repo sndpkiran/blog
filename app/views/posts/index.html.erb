@@ -1,5 +1,7 @@
+<!-- 
 <p id="notice"><%= notice %></p>
 
+ -->
 <div class="jumbotron">
 	<div class="container">
 		<h1>Blog (Rails Application)</h1>
@@ -18,6 +20,10 @@
 			<div class="pull-left">
 				<!-- <br> -->
 				<%= link_to 'Read more', post , :class=> "read-more" %>
+				<% if user_signed_in? %>
+					<%= link_to 'Edit', edit_post_path(post) %>
+					<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    			<% end %>
 			</div>
 			<div class="post-time pull-right">
 				<p><%= "Posted on: " + post.posted_on.strftime("%d-%m-%y") %></p>
@@ -25,34 +31,4 @@
 		</div><br>
 	<% end %>
 </div>
-<!-- <table>
-  <thead>
-	<tr>
-	  <th>Title</th>
-	  <th>Description</th>
-	  <th>Posted on</th>
-	  <th colspan="3"></th>
-	</tr>
-  </thead>
-
-  <tbody>
-	<% @posts.each do |post| %>
-	  <tr>
-		<td><%= post.title %></td>
-		<td><%= post.description %></td>
-		<td><%= post.posted_on %></td>
-		<td><%= link_to 'Show', post %></td>
-		<td><%= link_to 'Edit', edit_post_path(post) %></td>
-		<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	  </tr>
-	<% end %>
-  </tbody>
-</table>
- -->
-
-
-
-
 <br>
-
-

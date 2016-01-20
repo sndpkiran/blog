@@ -1,11 +1,17 @@
 <div class="container">
+	<!-- 
 	<p id="notice"><%= notice %></p>
+	 -->
 	<div>
 		<h1><%= @post.title %></h1>
 	 	<p>
 	 		Posted on: <%= @post.posted_on.strftime("%d-%m-%y") %>
 	 	</p>
 	<%= link_to 'Back', posts_path %>
+	<% if user_signed_in? %>
+		<%= link_to 'Edit', edit_post_path(@post) %>
+    <% end %>
+
 	</div><br><br>
 
 	<!-- <p>
@@ -18,9 +24,9 @@
 	  <%= @post.description %>
 	</p>
 
+
 	<!-- <p>
 	  <strong>Posted on:</strong>
-	<%= link_to 'Edit', edit_post_path(@post) %> |
 	</p> -->
 
 </div>
