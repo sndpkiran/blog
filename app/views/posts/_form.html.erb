@@ -17,11 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :posted_on %><br>
-    <%= f.datetime_select :posted_on %>
+    <%= f.text_area :description, :class=> "", :rows => "10", :cols => "100" %>
+
   </div>
   <div class="actions">
     <%= f.submit %>
