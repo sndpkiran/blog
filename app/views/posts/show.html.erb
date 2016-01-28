@@ -13,7 +13,9 @@
 	  <%= raw @post.description %>
 	</p>
 <br><br>
+	<%= form_for @comment do |f| %>
+		<%= f.label_for :content %>
+		<%= t.text_area :content %>
 
-
-
+	<% end %>
 </div>
