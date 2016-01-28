@@ -1,14 +1,17 @@
 class CommentsController < ApplicationController
+  before_action :comment_params
+  before_action :authenticate_user!, :only => [:create, :update, :destroy]
+
   def index
   end
 
   def create
-  	# @comment = Comment. new(params[comment])
-  	# if @comment.save
-  	# 	redirect_to {:controller => :posts, :action => :index}
-  	# else
-  	# 	render @comment
-  	# end
+  	@comment = Comment.new(comment_params)
+  	if @comment.save
+  		redirect_to @post
+  	else
+  		render @comment
+  	end
   end
 
   def update
@@ -17,4 +20,12 @@ class CommentsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def comment_params
+    @post = Post.find(params[:comment][:post_id])
+    params.require(:comment).permit(:user_id, :post_id, :content)
+  end
+
 end

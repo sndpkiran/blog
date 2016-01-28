@@ -13,9 +13,26 @@
 	  <%= raw @post.description %>
 	</p>
 <br><br>
+	<hr>
+	<p>Write a comment.</p><br>
 	<%= form_for @comment do |f| %>
-		<%= f.label_for :content %>
-		<%= t.text_area :content %>
-
+		<%= f.text_field :user_id, :value => current_user.id, :type => :hidden %>
+		<%= f.text_field :post_id, :value => @post.id, :type => :hidden %>
+		<%= f.text_area :content, :rows => "5", :cols => "50" %><br>
+		<%= f.submit :Comment %>
 	<% end %>
+	<h2>Comments:</h2><br>
+		<div class="comment-container">
+		<% @comments.each do |comment| %>
+			<div class="comment-by">
+				Posted by:  <%= comment.user_id %>
+			</div><br>
+			<div style="clear: both;"></div>
+			<div class="comment-content">
+				<p><%= comment.content %></p>
+			</div>
+			<hr>
+		<% end %>
+	</div>
+
 </div>

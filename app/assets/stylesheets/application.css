@@ -30,6 +30,7 @@ input {
 input[type='submit'],
 input[type='checkbox'] {
     width: auto;
+    font-size: 0.9em;
 }
 
 p,
@@ -240,4 +241,15 @@ input[type='date'] {
 
 .read-more {
 	font-size: 14px;
+}
+
+.comment-container {
+    background-color: #eee;
+    padding: 10px;
+}
+
+.comment-by {
+    float: left;
+    color: #999;
+    font-size: 0.7em;
 }
