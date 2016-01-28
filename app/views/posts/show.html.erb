@@ -1,7 +1,4 @@
 <div class="container">
-	<!-- 
-	<p id="notice"><%= notice %></p>
-	 -->
 	<div>
 		<h1><%= @post.title %></h1>
 	 	<p>
@@ -11,22 +8,12 @@
 	<% if user_signed_in? %>
 		<%= link_to 'Edit', edit_post_path(@post) %>
     <% end %>
-
 	</div><br><br>
-
-	<!-- <p>
-	  <strong>Title:</strong>
-	  <%= @post.title %>
-	</p> -->
-
 	<p>
-	  <!-- <strong>Description:</strong> -->
 	  <%= raw @post.description %>
 	</p>
+<br><br>
 
 
-	<!-- <p>
-	  <strong>Posted on:</strong>
-	</p> -->
 
 </div>
