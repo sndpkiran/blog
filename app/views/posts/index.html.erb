@@ -15,7 +15,9 @@
 				<h2><%= link_to post.title, post %></h2>
 			</div>
 			<div class="post-description">
-				<p><%= truncate post.description, :length => 400 %></p>
+				<%  stripped_desc =  strip_tags post.description %>
+				<% read_more_link = '<a class="read-more" href="/posts/'+post.id.to_s+'">Read more</a>'%>
+				<p><%= truncate stripped_desc, :length => 400%></p>
 			</div>
 			<div class="pull-left">
 				<!-- <br> -->
@@ -26,7 +28,7 @@
     			<% end %>
 			</div>
 			<div class="post-time pull-right">
-				<p><%= "Posted on: " + post.posted_on.strftime("%d-%m-%y") %></p>
+				<p><%= "Posted on: " + post.posted_on.strftime("%d-%m-%Y") %></p>
 			</div>
 		</div><br>
 	<% end %>
