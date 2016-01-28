@@ -12,6 +12,10 @@ class PostsController < ApplicationController
   def show
       @comment = Comment.new
       @comments = @post.comments
+      @users = []
+      @comments.each do |comment|
+        @users[comment.user_id] = User.find(comment.user_id)
+      end
   end
 
   # GET /posts/new

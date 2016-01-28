@@ -25,11 +25,12 @@
 		<%= f.text_area :content, :rows => "5", :cols => "50" %><br>
 		<%= f.submit :Comment %>
 	<% end %>
+
 	<h2>Comments:</h2><br>
 		<div class="comment-container">
 		<% @comments.each do |comment| %>
 			<div class="comment-by">
-				Posted by:  <%= comment.user_id %>
+				Posted by:  <%= @users[comment.user_id].email %>
 			</div><br>
 			<div style="clear: both;"></div>
 			<div class="comment-content">
