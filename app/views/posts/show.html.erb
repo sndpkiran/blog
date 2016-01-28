@@ -16,7 +16,11 @@
 	<hr>
 	<p>Write a comment.</p><br>
 	<%= form_for @comment do |f| %>
+	<% if !!current_user %>
 		<%= f.text_field :user_id, :value => current_user.id, :type => :hidden %>
+	<% else %>
+		<p>Login to comment <%= link_to "Sign In", user_session_path, :method => :get %></p>
+	<% end %>
 		<%= f.text_field :post_id, :value => @post.id, :type => :hidden %>
 		<%= f.text_area :content, :rows => "5", :cols => "50" %><br>
 		<%= f.submit :Comment %>
