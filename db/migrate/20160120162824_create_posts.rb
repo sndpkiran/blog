@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.string :description, :limit => 10000
-      t.datetime :posted_on, :default => Time.now, :null => false
+      t.datetime :posted_on, :null => false
 
       t.timestamps null: false
     end
