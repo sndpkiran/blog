@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root "posts#index"
   
   resources :posts
+
+  get "/results", :controller => :posts, :action => :results
   
   resources :comments
   

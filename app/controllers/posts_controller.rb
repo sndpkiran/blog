@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :results]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:key] && params[:key].to_s.length != 0
+      redirect_to "/results?key="+params[:key]
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1
@@ -65,6 +69,10 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def results
+      @posts = Post.where('title LIKE ?', "%#{params[:key]}%")
   end
 
   private

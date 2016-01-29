@@ -178,7 +178,7 @@ input[type='date'] {
 
 .jumbotron {
     width: 100%;
-    height: 400px;
+    height: 200px;
     background-color: #E0E0E0;
     color: black;
     /*margin-top: 60px;*/
@@ -252,4 +252,12 @@ input[type='date'] {
     float: left;
     color: #999;
     font-size: 0.7em;
+}
+
+.search_form input[type='text'] {
+    height: 20px;
+    padding: 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
 }
