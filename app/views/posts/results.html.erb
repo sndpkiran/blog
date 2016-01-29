@@ -1,0 +1,13 @@
+<div class="container">
+	<h1>Search Results: </h1><br>
+	<% if !@posts.blank? %>
+		<% @posts.each do |post| %>
+		<h2><%= link_to post.title, post %></h2>
+		<%  stripped_desc =  strip_tags post.description %>
+		<p><%= truncate stripped_desc, :length => 400%></p>
+		<hr>
+		<% end %>
+	<% else %>
+		<p>No Results found.</p>
+	<% end %> 
+</div>

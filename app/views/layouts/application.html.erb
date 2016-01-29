@@ -11,6 +11,12 @@
 		<div class="navbar-container">
 			<ul>
 				<li><%= link_to "Home", root_path %></li>
+					<li>
+						<%= form_tag posts_path, :method => :get, :class => "search_form" do %>
+							<%= text_field_tag :key, params[:search], :placeholder => "Search for a post" %>
+							<%= submit_tag :Search %>
+						<% end %>
+					</li>
 				<div class="pull-right">
 					<% if user_signed_in? && current_user.role == "admin" %>
 					<li><%= link_to 'Post as ('+current_user.email+')', new_post_path %></li>
